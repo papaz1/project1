@@ -1,0 +1,230 @@
+<mvc:View
+    controllerName="project1.controller.MainView"
+    height="100%"
+    xmlns="sap.uxap"
+    xmlns:articles="project1.controller.blocks"
+    xmlns:commons="sap.suite.ui.commons"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.f"
+    xmlns:fixedfund="project1.controller.blocks"
+    xmlns:forms="sap.ui.layout.form"
+    xmlns:promotion="project1.controller.blocks"
+    xmlns:m="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" showFooter="true" upperCaseAnchorBar="false">
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle id="objectPageDynamicHeaderTitle">
+                <expandedHeading>
+                    <m:Title text="Quotation" id="expandedHeadingTitle" wrapping="true" />
+                </expandedHeading>
+
+                <actions>
+                    <m:Button text="Edit" type="Emphasized" />
+                    <m:Button text="Unlock" />
+                    <m:Button text="Delete" />
+                </actions>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+
+        <headerContent>
+            <m:FlexBox wrap="Wrap" fitContainer="true">
+                <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                    <m:Title text="Quotation ID" class="sapUiTinyMarginBottom" />
+                    <m:ObjectStatus text="123456" class="sapMObjectStatusLarge" />
+                </m:VBox>
+
+                <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                    <m:Title text="Promotion Week" class="sapUiTinyMarginBottom" />
+                    <m:ObjectStatus text="1" class="sapMObjectStatusLarge" />
+                </m:VBox>
+
+                <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                    <m:Title text="Number of stores" class="sapUiTinyMarginBottom" />
+                    <m:ObjectStatus text="80" class="sapMObjectStatusLarge" />
+                </m:VBox>
+
+                <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                    <m:Title text="Status" class="sapUiTinyMarginBottom" />
+                    <m:ObjectStatus text="Approved" state="Success" class="sapMObjectStatusLarge" />
+                </m:VBox>
+            </m:FlexBox>
+        </headerContent>
+
+        <sections>
+            <ObjectPageSection titleUppercase="false" title="Promotion" showTitle="false">
+                <subSections>
+                    <ObjectPageSubSection titleUppercase="false">
+                        <blocks>
+                            <!--<promotion:PromotionBlock/>-->
+                            <forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent" editable="true" layout="ColumnLayout" columnsL="3">
+                                <core:Title text="General Information" />
+                                <m:Label text="Name" />
+                                <m:Input width="250px" placeholder="Risifrutti Strawberry" />
+                                <m:Label text="Vendor" required="true" />
+                                <m:MultiInput width="250px" placeholder="Orkla Foods Sverige AB" />
+                                <m:Label text="Promotion Date" required="true" />
+                                <m:DateRangeSelection width="250px" placeholder="Jan 2, 2023 - Jan 8, 2023" />
+                                <m:Label text="Store Concept" required="true" />
+                                <m:ComboBox width="250px" placeholder="Stora Coop" />
+                                <m:Label text="Coop Reference" required="true" />
+                                <m:MultiInput width="250px" placeholder="David Hedberg" />
+                                <m:Label text="Vendor Reference" required="true" />
+                                <m:MultiInput width="250px" placeholder="Baran Sölen" />
+
+                                <core:Title text="Fixed Amount Funds" />
+                                <m:Label text="Lump Sum" />
+                                <m:Input width="250px" placeholder="100 000" />
+                                <m:Label text="Lump Sum Central" />
+                                <m:Input width="250px" placeholder="50 000" />
+                                <m:Label text="Lump Sum Distributed" />
+                                <m:Input width="250px" placeholder="50 000" />
+
+                                <core:Title text="Processing Information" />
+                                <m:Label text="Current Processor" />
+                                <m:MultiInput width="250px" placeholder="David Hedberg" />
+                            </forms:SimpleForm>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+
+            <ObjectPageSection titleUppercase="false" title="Tactics" showTitle="false">
+                <subSections>
+                    <ObjectPageSubSection titleUppercase="false">
+                        <blocks>
+                            <t:Table rows="{/ProductCollection}" selectionMode="MultiToggle" visibleRowCount="2" paste="onPaste" ariaLabelledBy="title">
+                                <t:extension>
+                                    <m:OverflowToolbar>
+                                        <m:Title id="tacticsTitle" text="Tactics" />
+                                        <m:ToolbarSpacer />
+                                        <m:ToolbarSeparator />
+                                        <m:Button icon="sap-icon://add" tooltip="Add tactics" />
+                                    </m:OverflowToolbar>
+                                </t:extension>
+                                <t:columns>
+                                    <t:Column width="11rem">
+                                        <m:Label text="Tactic Type" />
+                                        <t:template>
+                                            <m:Text text="Risifrutti" wrapping="false" />
+                                        </t:template>
+                                    </t:Column>
+                                    <t:Column width="11rem">
+                                        <m:Label text="Tactics" />
+                                        <t:template>
+                                            <m:Input value="8000001" />
+                                        </t:template>
+                                    </t:Column>
+                                </t:columns>
+                            </t:Table>
+                        </blocks>
+                        <!--
+                                <fixedfund:FixedFundBlock id="fixedfund" columnLayout="1"/>
+                                -->
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+
+            <ObjectPageSection titleUppercase="false" title="Articles" showTitle="false">
+                <subSections>
+                    <ObjectPageSubSection titleUppercase="false">
+                        <blocks>
+                            <t:Table rows="{/ProductCollection}" selectionMode="MultiToggle" visibleRowCount="5" paste="onPaste" ariaLabelledBy="title">
+                                <t:extension>
+                                    <m:OverflowToolbar>
+                                        <m:Title id="title" text="Articles" />
+                                        <m:ToolbarSpacer />
+                                        <m:ToolbarSeparator />
+                                        <m:SearchField placeholder="Filter" value="{ui>/globalFilter}" search="filterGlobally" width="15rem" />
+
+                                        <m:Button tooltip="Add articles" icon="sap-icon://add" />
+                                        <m:Button tooltip="Add article group" icon="sap-icon://add-product" />
+                                        <m:Button icon="sap-icon://refresh" tooltip="Refresh list" press="sortCategories" />
+                                    </m:OverflowToolbar>
+                                </t:extension>
+                                <t:columns>
+                                    <t:Column width="11rem">
+                                        <m:Label text="Article Id" />
+                                        <t:template>
+                                            <m:Text text="Risifrutti" wrapping="false" />
+                                        </t:template>
+                                    </t:Column>
+                                    <t:Column width="11rem">
+                                        <m:Label text="Article Name" />
+                                        <t:template>
+                                            <m:Input value="8000001" />
+                                        </t:template>
+                                    </t:Column>
+                                    <t:Column width="11rem">
+                                        <m:Label text="Product Group" />
+                                        <t:template>
+                                            <m:Input value="8000001" />
+                                        </t:template>
+                                    </t:Column>
+                                    <t:Column width="11rem">
+                                        <m:Label text="Brand" />
+                                        <t:template>
+                                            <m:Input value="8000001" />
+                                        </t:template>
+                                    </t:Column>
+                                    <t:Column width="11rem">
+                                        <m:Label text="Fixed Purchase Price" />
+                                        <t:template>
+                                            <m:Input value="8000001" />
+                                        </t:template>
+                                    </t:Column>
+                                    <t:Column width="11rem">
+                                        <m:Label text="Discount Amount" />
+                                        <t:template>
+                                            <m:Input value="8000001" />
+                                        </t:template>
+                                    </t:Column>
+                                    <t:Column width="11rem">
+                                        <m:Label text="Regular Purchase Price" />
+                                        <t:template>
+                                            <m:Input value="8000001" />
+                                        </t:template>
+                                    </t:Column>
+                                </t:columns>
+                            </t:Table>
+                        </blocks>
+                        <!--
+                                <fixedfund:FixedFundBlock id="fixedfund" columnLayout="1"/>
+                                -->
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+
+            <ObjectPageSection titleUppercase="false" title="Messaging" showTitle="false">
+                <subSections>
+                    <ObjectPageSubSection titleUppercase="false">
+                        <blocks>
+                            <layout:VerticalLayout width="100%">
+                                <m:Title text="Messaging" />
+                                <m:FeedInput post="onFeedPost" />
+                                <m:List showSeparators="Inner" items="{/EntryCollection}">
+                                    <m:FeedListItem sender="{Author}" senderPress="onSenderPress" info="{Type}" timestamp="{Date}" text="{Text}" convertLinksToAnchorTags="All" />
+                                </m:List>
+                            </layout:VerticalLayout>
+                        </blocks>
+                        <!--
+                                <fixedfund:FixedFundBlock id="fixedfund" columnLayout="1"/>
+                                -->
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+
+        <footer>
+            <m:OverflowToolbar id="otb1">
+                <m:ToolbarSpacer />
+                <m:Button text="Approve" type="Accept" press="onFooterToolbarPress" />
+                <m:Button text="Reject" type="Reject" press="onFooterToolbarPress" />
+                <m:Button text="Save" type="Emphasized" press="onFooterToolbarPress" />
+                <m:Button text="Cancel" press="onFooterToolbarPress" />
+            </m:OverflowToolbar>
+        </footer>
+    </ObjectPageLayout>
+</mvc:View>
