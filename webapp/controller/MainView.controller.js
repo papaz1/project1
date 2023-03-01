@@ -12,9 +12,13 @@ sap.ui.define([
 
         return Controller.extend("project1.controller.MainView", {
             onInit: function () {
-                var sPath = sap.ui.require.toUrl("project1/localService/mockdata/mock_data.json");
+                var sPath = sap.ui.require.toUrl("project1/localService/mockdata/Messages.json");
                 var oModel = new JSONModel(sPath);
                 this.getView().setModel(oModel);
+
+                //for (var i = 0; i < oData.ProductCollection.length; i++) {
+                //    var oProduct = oData.ProductCollection[i];
+                //}
             },
 
             onFeedPost: function (oEvent) {

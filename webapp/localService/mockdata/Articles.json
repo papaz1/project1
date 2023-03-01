@@ -1,0 +1,114 @@
+{
+    "Articles":[
+        {
+            "articleId" : "1044461",
+            "articleName" : "Coriander",
+            "brand" : "Santa Maria",
+            "productGroup" : "Santa Maria Spices",
+            "regularPurchasePrice" : "20",
+            "discountType" : "Amount Off",
+            "discountValue" : "2",
+            "promotionPurchasePrice" : "18"
+        },
+        {
+            "articleId" : "1044462",
+            "articleName" : "Basil",
+            "brand" : "Santa Maria",
+            "productGroup" : "Santa Maria Spices",
+            "regularPurchasePrice" : "20",
+            "discountType" : "Amount Off",
+            "discountValue" : "2",
+            "promotionPurchasePrice" : "18"
+        },
+        {
+            "articleId" : "1044462",
+            "articleName" : "Oregano",
+            "brand" : "Santa Maria",
+            "productGroup" : "Santa Maria Spices",
+            "regularPurchasePrice" : "20",
+            "discountType" : "Amount Off",
+            "discountValue" : "2",
+            "promotionPurchasePrice" : "18"
+        },
+        {
+            "articleId" : "1044463",
+            "articleName" : "Cayenne Pepper",
+            "brand" : "Santa Maria",
+            "productGroup" : "Santa Maria Scapices",
+            "regularPurchasePrice" : "20",
+            "discountType" : "Amount Off",
+            "discountValue" : "2",
+            "promotionPurchasePrice" : "18"
+        },
+        {
+            "articleId" : "1044464",
+            "articleName" : "Curry",
+            "brand" : "Santa Maria",
+            "productGroup" : "Santa Maria Spices",
+            "regularPurchasePrice" : "20",
+            "discountType" : "Amount Off",
+            "discountValue" : "2",
+            "promotionPurchasePrice" : "18"
+        },
+        {
+            "articleId" : "1044465",
+            "articleName" : "Caper",
+            "brand" : "Santa Maria",
+            "productGroup" : "Santa Maria Spices",
+            "regularPurchasePrice" : "20",
+            "discountType" : "Amount Off",
+            "discountValue" : "2",
+            "promotionPurchasePrice" : "18"
+        },
+        {
+            "articleId" : "1044466",
+            "articleName" : "Parsley",
+            "brand" : "Santa Maria",
+            "productGroup" : "Santa Maria Spices",
+            "regularPurchasePrice" : "20",
+            "discountType" : "Amount Off",
+            "discountValue" : "2",
+            "promotionPurchasePrice" : "18"
+        },
+        {
+            "articleId" : "1044467",
+            "articleName" : "BBQ Spice",
+            "brand" : "Santa Maria",
+            "productGroup" : "Santa Maria Spices",
+            "regularPurchasePrice" : "20",
+            "discountType" : "Amount Off",
+            "discountValue" : "2",
+            "promotionPurchasePrice" : "18"
+        },
+        {
+            "articleId" : "1044468",
+            "articleName" : "Cardamom",
+            "brand" : "Santa Maria",
+            "productGroup" : "Santa Maria Spices",
+            "regularPurchasePrice" : "20",
+            "discountType" : "Amount Off",
+            "discountValue" : "2",
+            "promotionPurchasePrice" : "18"
+        },
+        {
+            "articleId" : "1044469",
+            "articleName" : "Black Pepper",
+            "brand" : "Santa Maria",
+            "productGroup" : "Santa Maria Spices",
+            "regularPurchasePrice" : "20",
+            "discountType" : "Amount Off",
+            "discountValue" : "2",
+            "promotionPurchasePrice" : "18"
+        },
+        {
+            "articleId" : "1044470",
+            "articleName" : "White Pepper",
+            "brand" : "Santa Maria",
+            "productGroup" : "Santa Maria Spices",
+            "regularPurchasePrice" : "20",
+            "discountType" : "Amount Off",
+            "discountValue" : "2",
+            "promotionPurchasePrice" : "18"
+        }
+    ]
+}
