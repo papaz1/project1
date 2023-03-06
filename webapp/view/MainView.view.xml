@@ -57,9 +57,9 @@
                             <forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent" editable="true" layout="ColumnLayout" columnsL="3">
                                 <core:Title text="General Information" />
                                 <m:Label text="Name" />
-                                <m:Input width="250px" placeholder="Risifrutti Strawberry" />
+                                <m:Input width="250px" placeholder="Santa Maria Spices" />
                                 <m:Label text="Vendor" required="true" />
-                                <m:MultiInput width="250px" placeholder="Orkla Foods Sverige AB" />
+                                <m:MultiInput width="250px" placeholder="Santa Maria AB" />
                                 <m:Label text="Promotion Date" required="true" />
                                 <m:DateRangeSelection width="250px" placeholder="Jan 2, 2023 - Jan 8, 2023" />
                                 <m:Label text="Store Concept" required="true" />
@@ -128,6 +128,9 @@
                                                 <m:Button icon="sap-icon://refresh" tooltip="Refresh list" press="sortCategories" />
                                             </m:OverflowToolbar>
                                         </t:extension>
+                                        <t:rowSettingsTemplate>
+					                        <t:RowSettings highlight="{article>status}"/>
+				                        </t:rowSettingsTemplate>
                                         <t:columns>
                                             <t:Column width="6rem">
                                                 <m:Label text="Article Id" />
@@ -191,7 +194,8 @@
                                             </m:List>
                                         </layout:VerticalLayout>
 									</f:SidePanelItem>
-					                <f:SidePanelItem icon="sap-icon://log" text="Change log" />
+                                    <f:SidePanelItem icon="sap-icon://notes" text="Internal notes" />
+					                <f:SidePanelItem icon="sap-icon://history" text="Change history" />
 				                </f:items>
                             </f:SidePanel>
                         </blocks>
@@ -201,7 +205,11 @@
         </sections>
         <footer>
             <m:OverflowToolbar id="otb1">
-                <m:ToolbarSpacer />
+                <m:Button id="messagePopoverBtn"
+					icon="sap-icon://message-popup"
+                    press=".handleMessagePopoverPress"
+					ariaHasPopup="Dialog"/>
+                <m:ToolbarSpacer />    
                 <m:Button text="Approve" type="Accept" press="onFooterToolbarPress" />
                 <m:Button text="Reject" type="Reject" press="onFooterToolbarPress" />
                 <m:Button text="Save" type="Emphasized" press="onFooterToolbarPress" />

@@ -1,16 +1,6 @@
 {
     "Articles":[
         {
-            "articleId" : "1044461",
-            "articleName" : "Coriander",
-            "brand" : "Santa Maria",
-            "productGroup" : "Santa Maria Spices",
-            "regularPurchasePrice" : "20",
-            "discountType" : "Amount Off",
-            "discountValue" : "2",
-            "promotionPurchasePrice" : "18"
-        },
-        {
             "articleId" : "1044462",
             "articleName" : "Basil",
             "brand" : "Santa Maria",
@@ -18,7 +8,8 @@
             "regularPurchasePrice" : "20",
             "discountType" : "Amount Off",
             "discountValue" : "2",
-            "promotionPurchasePrice" : "18"
+            "promotionPurchasePrice" : "18",
+            "status" : "None"
         },
         {
             "articleId" : "1044462",
@@ -28,17 +19,19 @@
             "regularPurchasePrice" : "20",
             "discountType" : "Amount Off",
             "discountValue" : "2",
-            "promotionPurchasePrice" : "18"
+            "promotionPurchasePrice" : "18",
+            "status" : "None"
         },
         {
             "articleId" : "1044463",
             "articleName" : "Cayenne Pepper",
             "brand" : "Santa Maria",
-            "productGroup" : "Santa Maria Scapices",
+            "productGroup" : "Santa Maria Sprices",
             "regularPurchasePrice" : "20",
             "discountType" : "Amount Off",
             "discountValue" : "2",
-            "promotionPurchasePrice" : "18"
+            "promotionPurchasePrice" : "18",
+            "status" : "None"
         },
         {
             "articleId" : "1044464",
@@ -48,7 +41,8 @@
             "regularPurchasePrice" : "20",
             "discountType" : "Amount Off",
             "discountValue" : "2",
-            "promotionPurchasePrice" : "18"
+            "promotionPurchasePrice" : "18",
+            "status" : "None"
         },
         {
             "articleId" : "1044465",
@@ -58,7 +52,8 @@
             "regularPurchasePrice" : "20",
             "discountType" : "Amount Off",
             "discountValue" : "2",
-            "promotionPurchasePrice" : "18"
+            "promotionPurchasePrice" : "18",
+            "status" : "None"
         },
         {
             "articleId" : "1044466",
@@ -68,7 +63,8 @@
             "regularPurchasePrice" : "20",
             "discountType" : "Amount Off",
             "discountValue" : "2",
-            "promotionPurchasePrice" : "18"
+            "promotionPurchasePrice" : "18",
+            "status" : "None"
         },
         {
             "articleId" : "1044467",
@@ -78,7 +74,8 @@
             "regularPurchasePrice" : "20",
             "discountType" : "Amount Off",
             "discountValue" : "2",
-            "promotionPurchasePrice" : "18"
+            "promotionPurchasePrice" : "18",
+            "status" : "None"
         },
         {
             "articleId" : "1044468",
@@ -88,7 +85,8 @@
             "regularPurchasePrice" : "20",
             "discountType" : "Amount Off",
             "discountValue" : "2",
-            "promotionPurchasePrice" : "18"
+            "promotionPurchasePrice" : "18",
+            "status" : "None"
         },
         {
             "articleId" : "1044469",
@@ -98,17 +96,19 @@
             "regularPurchasePrice" : "20",
             "discountType" : "Amount Off",
             "discountValue" : "2",
-            "promotionPurchasePrice" : "18"
+            "promotionPurchasePrice" : "18",
+            "status" : "None"
         },
         {
             "articleId" : "1044470",
-            "articleName" : "White Pepper",
+            "articleName" : "Coriander",
             "brand" : "Santa Maria",
-            "productGroup" : "Santa Maria Spices",
+            "productGroup" : "",
             "regularPurchasePrice" : "20",
             "discountType" : "Amount Off",
             "discountValue" : "2",
-            "promotionPurchasePrice" : "18"
+            "promotionPurchasePrice" : "18",
+            "status" : "Warning"
         }
     ]
 }
