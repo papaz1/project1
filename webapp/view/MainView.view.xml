@@ -4,12 +4,13 @@
     xmlns="sap.uxap"
     xmlns:commons="sap.suite.ui.commons"
     xmlns:core="sap.ui.core"
-    xmlns:layout="sap.ui.layout"
     xmlns:f="sap.f"
-    xmlns:forms="sap.ui.layout.form"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
     xmlns:m="sap.m"
-    xmlns:t="sap.ui.table"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:blocks="project1.controller.blocks"
+    xmlns:t="sap.ui.table" 
 >
     <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" showFooter="true" upperCaseAnchorBar="false">
         <headerTitle>
@@ -18,9 +19,9 @@
                     <m:Title text="Quotation" id="expandedHeadingTitle" wrapping="true" />
                 </expandedHeading>
                 <actions>
-                    <m:Button text="Edit" type="Emphasized" />
-                    <m:Button text="Unlock" />
-                    <m:Button text="Delete" />
+                    <m:Button text="{i18n>editButton}" type="Emphasized" />
+                    <m:Button text="{i18n>unlockButton}" />
+                    <m:Button text="{i18n>deleteButton}" />
                 </actions>
             </ObjectPageDynamicHeaderTitle>
         </headerTitle>
@@ -39,12 +40,12 @@
 
                 <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                     <m:Title text="Number of stores" class="sapUiTinyMarginBottom" />
-                    <m:ObjectStatus text="80" class="sapMObjectStatusLarge" />
+                    <m:ObjectStatus text="90" class="sapMObjectStatusLarge" />
                 </m:VBox>
 
                 <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                     <m:Title text="Status" class="sapUiTinyMarginBottom" />
-                    <m:ObjectStatus text="Approved" state="Success" class="sapMObjectStatusLarge" />
+                    <m:ObjectStatus text="New" state="None" class="sapMObjectStatusLarge" />
                 </m:VBox>
             </m:FlexBox>
         </headerContent>
@@ -54,47 +55,7 @@
                 <subSections>
                     <ObjectPageSubSection titleUppercase="false">
                         <blocks>
-                            <forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent" editable="true" layout="ColumnLayout" columnsL="3">
-                                <core:Title text="General Information" />
-                                <m:Label text="Name" />
-                                <m:Input width="250px" placeholder="Santa Maria Spices" />
-                                <m:Label text="Vendor" required="true" />
-                                <m:MultiInput width="250px" placeholder="Santa Maria AB" />
-                                <m:Label text="Promotion Date" required="true" />
-                                <m:DateRangeSelection width="250px" placeholder="Jan 2, 2023 - Jan 8, 2023" />
-                                <m:Label text="Store Concept" required="true" />
-                                <m:ComboBox width="250px" placeholder="Stora Coop" />
-                                <m:Label text="Tactics" required="true" />
-                                <m:MultiComboBox
-                                    width="250px"
-                                    items="{
-                                            path: 'tactic>/Tactics',
-                                            sorter: {
-                                                path: 'tacticType',
-                                                descending: false,
-                                                group: true
-                                            }    
-                                        }">
-                                    <m:items>
-                                        <core:Item key="{tactic>tacticType}" text="{tactic>tactics}" />
-                                    </m:items>
-                                </m:MultiComboBox>
-                                <m:Label text="Coop Reference" required="true" />
-                                <m:MultiInput width="250px" placeholder="David Hedberg" />
-                                <m:Label text="Vendor Reference" required="true" />
-                                <m:MultiInput width="250px" placeholder="Baran Sölen" />
-
-                                <core:Title text="Fixed Amount Funds" />
-                                <m:Label text="Lump Sum" />
-                                <m:Input width="250px" placeholder="100 000" />
-                                <m:Label text="Lump Sum Central" />
-                                <m:Input width="250px" placeholder="50 000" />
-                                <m:Label text="Lump Sum Distributed" />
-                                <m:Input width="250px" placeholder="50 000" />
-                                <core:Title text="Processing Information" />
-                                <m:Label text="Current Processor" />
-                                <m:MultiInput width="250px" placeholder="David Hedberg" />
-                            </forms:SimpleForm>
+                            <blocks:PromotionBlock id="promotionId"/>
                         </blocks>
                     </ObjectPageSubSection>
                 </subSections>
@@ -104,8 +65,10 @@
                 <subSections>
                     <ObjectPageSubSection titleUppercase="false">
                         <blocks>
+                            <!--<blocks:ArticlesBlock id="articlesId"/>-->
+
                             <f:SidePanel 
-                                sidePanelWidth="500px"
+                                sidePanelWidth="600px"
                                 sidePanelResizable="true" 
                                 id="mySidePanel" 
                                 toggle="onToggle">
@@ -119,7 +82,11 @@
                                         ariaLabelledBy="title">
                                         <t:extension>
                                             <m:OverflowToolbar>
-                                                <m:Title id="title" text="Articles" />
+                                                <m:Title id="title" 
+                                                    text="{
+                                                        path: '/Articles',
+                                                        formatter: '.formatter.titleText'
+                                                    }"/>
                                                 <m:ToolbarSpacer />
                                                 <m:ToolbarSeparator />
                                                 <m:SearchField placeholder="Filter" value="{ui>/globalFilter}" search="filterGlobally" width="15rem" />
@@ -194,8 +161,14 @@
                                             </m:List>
                                         </layout:VerticalLayout>
 									</f:SidePanelItem>
-                                    <f:SidePanelItem icon="sap-icon://notes" text="Internal notes" />
-					                <f:SidePanelItem icon="sap-icon://history" text="Change history" />
+                                    <f:SidePanelItem icon="sap-icon://notes" text="Internal notes">
+                                        <layout:VerticalLayout width="100%">
+                                            <m:TextArea rows="15" width="100%"/>
+                                        </layout:VerticalLayout>
+                                    </f:SidePanelItem>
+					                <!--
+                                    <f:SidePanelItem icon="sap-icon://history" text="Change history" />
+                                    -->
 				                </f:items>
                             </f:SidePanel>
                         </blocks>

@@ -1,0 +1,89 @@
+<mvc:View 
+    xmlns:f="sap.f"
+    xmlns:m="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:t="sap.ui.table" >
+    
+    <f:SidePanel sidePanelWidth="500px" sidePanelResizable="true" id="mySidePanel" toggle="onToggle">
+        <f:mainContent>
+            <t:Table rows="{article>/Articles}" alternateRowColors="true" selectionMode="MultiToggle" visibleRowCount="12" paste="onPaste" ariaLabelledBy="title">
+                <t:extension>
+                    <m:OverflowToolbar>
+                        <m:Title id="title" text="Articles" />
+                        <m:ToolbarSpacer />
+                        <m:ToolbarSeparator />
+                        <m:SearchField placeholder="Filter" value="{ui>/globalFilter}" search="filterGlobally" width="15rem" />
+                        <m:Button tooltip="Add articles" icon="sap-icon://add" />
+                        <m:Button tooltip="Add article group" icon="sap-icon://add-product" />
+                        <m:Button icon="sap-icon://refresh" tooltip="Refresh list" press="sortCategories" />
+                    </m:OverflowToolbar>
+                </t:extension>
+                <t:rowSettingsTemplate>
+                    <t:RowSettings highlight="{article>status}" />
+                </t:rowSettingsTemplate>
+                <t:columns>
+                    <t:Column width="6rem">
+                        <m:Label text="Article Id" />
+                        <t:template>
+                            <m:Text text="{article>articleId}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="8rem">
+                        <m:Label text="Article Name" />
+                        <t:template>
+                            <m:Text text="{article>articleName}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="8rem">
+                        <m:Label text="Brand" />
+                        <t:template>
+                            <m:Text text="{article>brand}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="11rem">
+                        <m:Label text="Product Group" />
+                        <t:template>
+                            <m:Text text="{article>productGroup}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="11rem">
+                        <m:Label text="Regular Purchase Price" />
+                        <t:template>
+                            <m:Text text="{article>regularPurchasePrice}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="8rem">
+                        <m:Label text="Discount Type" />
+                        <t:template>
+                            <m:Text text="{article>discountType}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="8rem">
+                        <m:Label text="Discount Value" />
+                        <t:template>
+                            <m:Text text="{article>discountValue}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="12rem">
+                        <m:Label text="Promotion Purchase Price" />
+                        <t:template>
+                            <m:Text text="{article>promotionPurchasePrice}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                </t:columns>
+            </t:Table>
+        </f:mainContent>
+        <f:items>
+            <f:SidePanelItem icon="sap-icon://comment" text="Comments">
+                <layout:VerticalLayout width="100%">
+                    <m:FeedInput post="onFeedPost" showIcon="false" />
+                    <m:List showSeparators="Inner" items="{/EntryCollection}">
+                        <m:FeedListItem sender="{Author}" senderPress="onSenderPress" info="{Type}" timestamp="{Date}" text="{Text}" convertLinksToAnchorTags="All" />
+                    </m:List>
+                </layout:VerticalLayout>
+            </f:SidePanelItem>
+            <f:SidePanelItem icon="sap-icon://notes" text="Internal notes" />
+            <f:SidePanelItem icon="sap-icon://history" text="Change history" />
+        </f:items>
+    </f:SidePanel>
+</mvc:View>

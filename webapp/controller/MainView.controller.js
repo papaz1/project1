@@ -5,16 +5,18 @@ sap.ui.define([
     "sap/m/MessageToast",
     "sap/m/MessageItem",
     "sap/m/MessagePopover",
+	"../model/formatter"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, DateFormat, JSONModel, MessageToast, MessageItem, MessagePopover) {
+    function (Controller, DateFormat, JSONModel, MessageToast, MessageItem, MessagePopover, formatter) {
         "use strict";
 
         var oMessagePopover;
 
         return Controller.extend("project1.controller.MainView", {
+            formatter: formatter,
             onInit: function () {            
                 oMessagePopover = new MessagePopover();
 
@@ -54,8 +56,8 @@ sap.ui.define([
                 var oMessageItem = new MessageItem({
                     type: 'Warning',
                     title: 'Warning message ',
-                    description: 'Product XYZ needs to be added to product group before quotation can be approved',
-                    subtitle: 'Product XYZ not in product group',
+                    description: 'Article 1044470 needs to be added to product group before the quotation can be approved',
+                    subtitle: 'Article 1044470 not in product group',
                     counter: 1
                 });
                 oMessagePopover.addItem(oMessageItem);
