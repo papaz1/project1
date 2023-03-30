@@ -1,0 +1,16 @@
+{
+    "Funds":[
+        {
+            "key" : "TV",
+            "fundType" : "Billback"
+        },
+        {
+            "key" : "Flyer",
+            "fundType" : "Scanback"
+        },
+        {
+            "key" : "Fixed Purchase Price",
+            "fundType" : "Print"
+        }
+    ]
+}

@@ -1,6 +1,7 @@
 <mvc:View 
     xmlns:core="sap.ui.core" 
     xmlns:form="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
     xmlns:m="sap.m"
     xmlns:mvc="sap.ui.core.mvc">
 
@@ -10,13 +11,31 @@
         layout="ColumnLayout" 
         columnsL="3">
 
-            <core:Title text="General Information" />
+            <core:Title text="General Information" />            
             <m:Label text="Name" />
             <m:Input width="300px" placeholder="Santa Maria Spices" />
             <m:Label text="Vendor" required="true" />
             <m:MultiInput width="300px" placeholder="Santa Maria AB" />
-            <m:Label text="Suggested Article and Price" />
-            <m:Input width="300px" placeholder="Oregano 30g - 2kr amount off" />
+            <m:Label text="Suggested Article and Fund" />
+            <m:Input width="300px" placeholder="Oregano 65g - 17 SEK fixed" />
+            <!--
+            <m:Label text="Suggested Fund Type and Fund Value in SEK" />
+            
+            <m:ComboBox
+                width="200px"
+                items="{
+                    path: 'fund>/Funds',
+                    sorter: {
+                        path: 'fundType',
+                        descending: false
+                        }    
+                }">
+                <m:items>
+                    <core:Item key="{fund>key}" text="{fund>fundType}" />
+                </m:items>
+            </m:ComboBox>
+            <m:Input width="95px"/>
+            -->
             <m:Label text="Promotion Date" required="true" />
             <m:DateRangeSelection width="300px" placeholder="Jan 2, 2023 - Jan 8, 2023" />
             <m:Label text="Store Concept" required="true" />
@@ -44,6 +63,7 @@
             <m:Input width="225px" placeholder="50 000" />
             <m:Label text="Lump Sum Distributed" />
             <m:Input width="225px" placeholder="50 000" />
+            
             <core:Title text="Processing Information" />
             <m:Label text="Current Processor" />
             <m:MultiInput width="225px" placeholder="David Hedberg" />

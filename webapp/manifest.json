@@ -66,6 +66,10 @@
         "type" : "sap.ui.model.json.JSONModel",
         "uri" : "localService/mockdata/Articles.json"  
       },
+      "fund" : {
+        "type" : "sap.ui.model.json.JSONModel",
+        "uri" : "localService/mockdata/Funds.json"  
+      },
       "tactic" : {
         "type" : "sap.ui.model.json.JSONModel",
         "uri" : "localService/mockdata/Tactics.json"  

@@ -45,7 +45,7 @@
 
                 <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                     <m:Title text="Status" class="sapUiTinyMarginBottom" />
-                    <m:ObjectStatus text="New" state="None" class="sapMObjectStatusLarge" />
+                    <m:ObjectStatus text="Approved" state="Success" class="sapMObjectStatusLarge" />
                 </m:VBox>
             </m:FlexBox>
         </headerContent>
@@ -91,7 +91,8 @@
                                                 <m:ToolbarSeparator />
                                                 <m:SearchField placeholder="Filter" value="{ui>/globalFilter}" search="filterGlobally" width="15rem" />
                                                 <m:Button tooltip="Add articles" icon="sap-icon://add" />
-                                                <m:Button tooltip="Add article group" icon="sap-icon://add-product" />
+                                                <m:Button tooltip="Add product group" icon="sap-icon://add-product" />
+                                                <m:Button tooltip="Combine into one group" icon="sap-icon://combine" />
                                                 <m:Button icon="sap-icon://refresh" tooltip="Refresh list" press="sortCategories" />
                                             </m:OverflowToolbar>
                                         </t:extension>
@@ -184,7 +185,7 @@
 					ariaHasPopup="Dialog"/>
                 <m:ToolbarSpacer />    
                 <m:Button text="Approve" type="Accept" press="onFooterToolbarPress" />
-                <m:Button text="Reject" type="Reject" press="onFooterToolbarPress" />
+                <m:Button text="Reject" type="Reject" press="onRejectButtonPress" />
                 <m:Button text="Save" type="Emphasized" press="onFooterToolbarPress" />
                 <m:Button text="Cancel" press="onFooterToolbarPress" />
             </m:OverflowToolbar>
