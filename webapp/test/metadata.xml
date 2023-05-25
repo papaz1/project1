@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://ufi.hec.coop.se:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='S4FIN')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://ufi.hec.coop.se:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='S4FIN')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://ufi.hec.coop.se:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='S4FIN')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://ufi.hec.coop.se:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='S4FIN')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://ufi.hec.coop.se:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='S4FIN')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zui_store_rep_prom_u_02" xml:lang="sv" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZC_STORE_REP_PROMType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="promotion"/>
+                </Key>
+                <Property Name="promotion" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Kampanj"/>
+                <Property Name="promotion_type" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Kampanjtyp"/>
+                <Property Name="promotion_type_description" Type="Edm.String" MaxLength="20" sap:label="" sap:quickinfo="Beteckning"/>
+                <Property Name="sale_from" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="" sap:quickinfo="Försäljning till konsument från"/>
+                <Property Name="Sales_Week" Type="Edm.Int32" sap:label=""/>
+                <Property Name="sale_to" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="" sap:quickinfo="Försäljning till konsument till"/>
+                <Property Name="reply_week" Type="Edm.Int32" sap:label=""/>
+                <Property Name="reply_by" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="" sap:quickinfo="Återrapporteringsdatum för produktionsenhet"/>
+                <Property Name="offer_name" Type="Edm.String" MaxLength="1" sap:label=""/>
+                <Property Name="offer_desc" Type="Edm.String" MaxLength="1" sap:label=""/>
+                <Property Name="ean" Type="Edm.String" MaxLength="1" sap:label=""/>
+                <Property Name="material" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Artikel Nos."/>
+                <Property Name="MaterialName" Type="Edm.String" MaxLength="40" sap:label="" sap:quickinfo="Materialbeteckning"/>
+                <Property Name="hiernode" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Hierarkinod 5" sap:value-list="standard"/>
+                <Property Name="reply_needed" Type="Edm.String" MaxLength="3" sap:label=""/>
+                <Property Name="reply_sent" Type="Edm.String" MaxLength="3" sap:label=""/>
+                <Property Name="img" Type="Edm.String" sap:label="" sap:quickinfo="Bild-URL"/>
+                <Property Name="grossweight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="weightUnit" sap:label="" sap:quickinfo="Bruttovikt"/>
+                <Property Name="weightUnit" Type="Edm.String" MaxLength="3" sap:label="" sap:quickinfo="Viktenhet" sap:semantics="unit-of-measure"/>
+                <Property Name="Material_Group_Code" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Produktgrupp"/>
+                <Property Name="material_group_name" Type="Edm.String" MaxLength="20" sap:label="" sap:quickinfo="Produktgruppsbeskrivning"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3" sap:label="" sap:quickinfo="Försäljningsmängdenhet" sap:semantics="unit-of-measure"/>
+                <Property Name="planned_alloc_quant" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UOM" sap:label="" sap:quickinfo="Plan. förs.kvant. för kampanj av material i försäljnings-ME"/>
+                <Property Name="prom_sales_price" Type="Edm.Decimal" Precision="12" Scale="3" sap:label="" sap:quickinfo="Försäljningspris för kampanjposition"/>
+                <Property Name="prom_store_transfer_price" Type="Edm.String" MaxLength="1" sap:label=""/>
+                <Property Name="prom_margin" Type="Edm.Double" sap:label=""/>
+                <Property Name="prom_margin_kr" Type="Edm.Decimal" Precision="13" Scale="3" sap:label=""/>
+                <Property Name="corrected_allocated_quantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UOM" sap:label="" sap:quickinfo="Korrigerad/bekräftad fördelningskvant. f en kampanjposition"/>
+                <Property Name="corrected_allocated_currency" Type="Edm.String" MaxLength="5" sap:label="" sap:quickinfo="Inköpsprisvaluta" sap:semantics="currency-code"/>
+                <Property Name="min_order_quantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UOM" sap:label="" sap:quickinfo="Minsta beställningskvantitet för kampanjmaterial"/>
+                <Property Name="planned_sales_quantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UOM" sap:label="" sap:quickinfo="Plan. förs.kvant. för kampanj av material i försäljnings-ME"/>
+                <Property Name="blocking_reason" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Kampanj: Spärrorsak"/>
+                <Property Name="offer_id" Type="Edm.String" MaxLength="36" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Offert-ID pris"/>
+                <Property Name="offer_id_discount" Type="Edm.String" MaxLength="36" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Offert-ID aktivitet"/>
+                <Property Name="discount_to_store" Type="Edm.String" MaxLength="1" sap:label=""/>
+                <Property Name="Material_Category" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Produktkategori"/>
+                <Property Name="promotion_role" Type="Edm.String" MaxLength="1" sap:label=""/>
+                <Property Name="instore_replacement" Type="Edm.String" MaxLength="1" sap:label=""/>
+                <Property Name="info_to_store" Type="Edm.String" MaxLength="1" sap:label=""/>
+                <Property Name="COA_FLAG" Type="Edm.String" MaxLength="8" sap:label=""/>
+                <Property Name="supplier" Type="Edm.String" MaxLength="40" sap:label="" sap:quickinfo="Namn 1 för organisation"/>
+                <Property Name="Brand" Type="Edm.String" MaxLength="30" sap:label="" sap:quickinfo="Märkesnamn"/>
+                <Property Name="way_of_delivery" Type="Edm.String" MaxLength="9" sap:label=""/>
+                <Property Name="assoet" Type="Edm.String" MaxLength="1" sap:label=""/>
+                <Property Name="standard_sale_price" Type="Edm.Decimal" Precision="12" Scale="3" sap:label=""/>
+                <Property Name="standard_store_price" Type="Edm.Decimal" Precision="12" Scale="3" sap:label=""/>
+                <Property Name="standard_store_margin" Type="Edm.Double" sap:label=""/>
+                <Property Name="margin_in_KR" Type="Edm.Decimal" Precision="13" Scale="3" sap:label=""/>
+                <Property Name="Order_From" Type="Edm.Decimal" Precision="5" Scale="0" sap:label="" sap:quickinfo="Försäljningsprisenhet"/>
+                <Property Name="Order_To" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="" sap:quickinfo="Senaste orderdatum"/>
+                <Property Name="Delivery_From" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="" sap:quickinfo="Tidigaste leveransdatum"/>
+                <Property Name="Delivery_To" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="" sap:quickinfo="Senaste leveransdatum"/>
+                <Property Name="block_Date" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="" sap:quickinfo="Datum då kampanjmaterial spärrades för kampanj"/>
+                <Property Name="customer" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="" sap:quickinfo="PE-specifikt kundnummer"/>
+                <Property Name="dummy_column" Type="Edm.String" MaxLength="1"/>
+                <NavigationProperty Name="to_item" Relationship="cds_zui_store_rep_prom_u_02.assoc_64F174EC18EE12C142FB4457B107DD90" FromRole="FromRole_assoc_64F174EC18EE12C142FB4457B107DD90" ToRole="ToRole_assoc_64F174EC18EE12C142FB4457B107DD90"/>
+            </EntityType>
+            <EntityType Name="ZC_STORE_REP_PROM_OBJECTType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="aktnr"/>
+                </Key>
+                <Property Name="aktnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Kampanj"/>
+                <Property Name="artnr" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="wmnge" Type="Edm.Decimal" Precision="13" Scale="3" sap:label=""/>
+                <Property Name="wedat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label=""/>
+                <Property Name="planned_alloc_quant_div" Type="Edm.Decimal" Precision="13" Scale="0" sap:label=""/>
+                <NavigationProperty Name="to_PARENT" Relationship="cds_zui_store_rep_prom_u_02.assoc_7A6753C82FEFF3F757AAC82E0F9961AC" FromRole="FromRole_assoc_7A6753C82FEFF3F757AAC82E0F9961AC" ToRole="ToRole_assoc_7A6753C82FEFF3F757AAC82E0F9961AC"/>
+            </EntityType>
+            <EntityType Name="ZI_FI_ARTNODE_VHType" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Node"/>
+                </Key>
+                <Property Name="Node" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:text="Node_Text" sap:label="Hierarkinod"/>
+                <Property Name="Node_Text" Type="Edm.String" MaxLength="40" sap:label="Beskrivning" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <Association Name="assoc_7A6753C82FEFF3F757AAC82E0F9961AC" sap:content-version="1">
+                <End Type="cds_zui_store_rep_prom_u_02.ZC_STORE_REP_PROM_OBJECTType" Multiplicity="1" Role="FromRole_assoc_7A6753C82FEFF3F757AAC82E0F9961AC"/>
+                <End Type="cds_zui_store_rep_prom_u_02.ZC_STORE_REP_PROMType" Multiplicity="1" Role="ToRole_assoc_7A6753C82FEFF3F757AAC82E0F9961AC"/>
+            </Association>
+            <Association Name="assoc_64F174EC18EE12C142FB4457B107DD90" sap:content-version="1">
+                <End Type="cds_zui_store_rep_prom_u_02.ZC_STORE_REP_PROMType" Multiplicity="1" Role="FromRole_assoc_64F174EC18EE12C142FB4457B107DD90">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_zui_store_rep_prom_u_02.ZC_STORE_REP_PROM_OBJECTType" Multiplicity="*" Role="ToRole_assoc_64F174EC18EE12C142FB4457B107DD90"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_64F174EC18EE12C142FB4457B107DD90">
+                        <PropertyRef Name="promotion"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_64F174EC18EE12C142FB4457B107DD90">
+                        <PropertyRef Name="aktnr"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="cds_zui_store_rep_prom_u_02_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZC_STORE_REP_PROM" EntityType="cds_zui_store_rep_prom_u_02.ZC_STORE_REP_PROMType" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZC_STORE_REP_PROM_OBJECT" EntityType="cds_zui_store_rep_prom_u_02.ZC_STORE_REP_PROM_OBJECTType" sap:content-version="1"/>
+                <EntitySet Name="ZI_FI_ARTNODE_VH" EntityType="cds_zui_store_rep_prom_u_02.ZI_FI_ARTNODE_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <AssociationSet Name="assoc_64F174EC18EE12C142FB4457B107DD90" Association="cds_zui_store_rep_prom_u_02.assoc_64F174EC18EE12C142FB4457B107DD90" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_STORE_REP_PROM" Role="FromRole_assoc_64F174EC18EE12C142FB4457B107DD90"/>
+                    <End EntitySet="ZC_STORE_REP_PROM_OBJECT" Role="ToRole_assoc_64F174EC18EE12C142FB4457B107DD90"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_7A6753C82FEFF3F757AAC82E0F9961AC" Association="cds_zui_store_rep_prom_u_02.assoc_7A6753C82FEFF3F757AAC82E0F9961AC" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_STORE_REP_PROM_OBJECT" Role="FromRole_assoc_7A6753C82FEFF3F757AAC82E0F9961AC"/>
+                    <End EntitySet="ZC_STORE_REP_PROM" Role="ToRole_assoc_7A6753C82FEFF3F757AAC82E0F9961AC"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="cds_zui_store_rep_prom_u_02.ZC_STORE_REP_PROMType/hiernode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Value Help for Article Node"/>
+                        <PropertyValue Property="CollectionPath" String="ZI_FI_ARTNODE_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="hiernode"/>
+                                    <PropertyValue Property="ValueListProperty" String="Node"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Node_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_store_rep_prom_u_02.cds_zui_store_rep_prom_u_02_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_store_rep_prom_u_02.cds_zui_store_rep_prom_u_02_Entities/ZC_STORE_REP_PROM" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="img"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_item"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="true"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>img</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://ufi.hec.coop.se:443/sap/opu/odata/sap/ZUI_STORE_REP_PROM_U_02/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://ufi.hec.coop.se:443/sap/opu/odata/sap/ZUI_STORE_REP_PROM_U_02/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
